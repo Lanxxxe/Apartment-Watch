@@ -1,0 +1,92 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --body-color: #304647;
+    --card-color: #4d595a;
+    --mdj-white: #d4dddd;
+    --title-color: #385e62;
+    --font-color: #9ec7c5;
+    --button-color: #83b6b4;
+    --button-hover-color: #8bc6c4;
+}
+
+body {
+    background-color: var(--body-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.login-page-container {
+    background-color: var(--card-color);
+    box-shadow: 0 0 15px rgba(66, 66, 66, 0.3);
+    border-radius: 10px;
+    width: 75vw;
+    height: 65vh;
+}
+
+
+.title-container, .login-container {
+    flex: 1;
+}
+.title-container > h3 {
+    color: var(--font-color);
+    font-weight: 700;
+    font-style: normal;
+}
+.title-container > p {
+    color: var(--font-color);
+    font-weight: 400;
+    font-style: normal;
+}
+.watch {
+    color: rgb(240, 240, 240);
+}
+
+.login-container {
+    height: 100%;
+    background-color: var(--mdj-white);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.login-container > div:nth-child(1) > h2 {
+    color: var(--title-color);
+    font-weight: 700;
+    font-style: normal;
+}
+.login-container div, form {
+    width: 100%;
+}
+form input {
+    border-radius: 18px;
+    border: none;
+    padding: 8px 13px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.89rem;
+}
+form label {
+    color: var(--title-color);
+    font-size: 0.86rem;
+    font-weight: 400;
+    font-style: normal;
+}
+#submit-button {
+    font-weight: 500;
+    width: 100%;
+    border-radius: 17px;
+    border: none;
+    background-color: var(--button-color);
+    padding: 10px 0;
+}
+#submit-button:hover {
+    background-color: var(--button-hover-color);
+    box-shadow: 0 0 6px #8fc2c0b5;
+}
