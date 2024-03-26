@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <nav class="navbar navigation-bar">
+    <nav class="navbar navigation-bar d-flex justify-content-between">
         <div class="container-fluid ">
             <a href="#" class="navbar-brand">
                 <img class="navbar-logo d-inline-block align-text-center" src="./images/AW-logo.png" alt="Navbar Logo"> <span>Apartment Watch</span>
@@ -25,11 +25,11 @@
 
     <div class="body-content d-flex">
         <div class="side-nav-bar d-none d-sm-block">
-            <div class="d-flex align-items-center justify-content-center">
-                <img src="" alt="">
-                <p>Landlord name</p>
+            <div class="acc-manager p-2 d-flex align-items-center">
+                <img src="./images/icon.png" alt="Landlord Image">
+                <p class="mt-2 mx-2">Charles Laurence Gula</p>
             </div>
-            <nav class="navbar mt-5">
+            <nav class="navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link mx-3" href=""><i class="bi bi-grid"></i> Dashboard</a>
