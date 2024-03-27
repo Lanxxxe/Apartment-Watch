@@ -11,8 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./images/AW-logo.png" type="image/x-icon">
-    
-    
+
     <title>Apartment Watch</title>
 </head>
 
@@ -22,9 +21,7 @@
             <lord-icon class="text-center" src="https://cdn.lordicon.com/vfczflna.json" trigger="loop-on-hover" delay="800" style="width:50px;height:50px">
             </lord-icon>
             <h3 class="text-center">
-                Welcome to Apartment <span class="watch">Watch
-                </span>
-
+                Welcome to Apartment <span class="watch">Watch</span>
             </h3>
 
             <p class="text-center mt-3">Your partner in managing of your Apartments</p>

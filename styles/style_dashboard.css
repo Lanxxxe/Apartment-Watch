@@ -11,28 +11,32 @@
     --mdj-white: #d4dddd;
     --title-color: #385e62;
     --font-color: #9ec7c5;
+    --secondary-font-color: #2a9ba7;
     --button-color: #83b6b4;
     --button-hover-color: #8bc6c4;
     --text-hover: #7ba9a8;
+
 }
 
 body {
-    background-color: var(--body-color);
+    background-color: var(--card-color);
     min-height: 100vh;
 }
-.navigation-bar {
-    background-color: var(--card-color);
-}
-
 .navbar-logo {
     width: 50px;
     height: auto;
+    margin-right: -15px;
+    
 }
-.navbar-brand > span {
+.logo-container > p {
     font-weight: 700;
-    color: var(--mdj-white);
+    color: #000;
+    font-size: 18px;
+    padding-bottom: -10px;
 }
-
+.logo-container {
+    text-wrap: wrap;
+}
 
 .side-nav-bar, .main-content {
     /* border: 1px solid red; */
@@ -43,7 +47,6 @@ body {
     background-color: var(--mdj-white);
 }
 .side-nav-bar a {
-    /* font-size: 16px; */
     font-weight: 500;
 }
 .side-nav-bar a:hover {
@@ -56,13 +59,65 @@ body {
     border-radius: 100%;
 }
 
+/* MAIN CONTENT STYLES */
 .main-content {
     flex: 82%;
 }
+.landlord-info {
+    width: auto;
+    height: 27vh;
+    border-radius: 10px;
+    background-color: var(--mdj-white);
+    box-shadow: 2px 3px 8px rgba(239, 239, 239, 0.47);
+    -webkit-box-shadow: 2px 3px 8px rgba(239, 239, 239, 0.47);
+    -moz-box-shadow: 2px 3px 8px rgba(239, 239, 239, 0.47);
+}
+.landlord-info > div {
+    flex: 1;
+}
 
+.owner-img {
+    width: 25%;
+    height: 25%;
+    border-radius: 5%;
+}
 
+.owner-name > p:nth-child(2){
+    margin-top: -16px;
+}
 
+.landlord-dashboard {
+    /* border: 1px solid red; */
+    gap: 37px;
+}
+.landlord-dashboard > div {
+    width: 301px;
+    height: 171px;
+    background-color: var(--mdj-white);
+    border-radius: 7px;
+    border: none;
+    box-shadow: 2px 3px 4px rgba(239, 239, 239, 0.47);
+    -webkit-box-shadow: 2px 3px 4px rgba(239, 239, 239, 0.47);
+    -moz-box-shadow: 2px 3px 4px rgba(239, 239, 239, 0.47);
+}
 
+.landlord-dashboard > div > div {
+    padding-bottom: -20px;
+    /* border: 1px solid black; */
+}
+.landlord-dashboard > div > div > i {
+
+}
+.landlord-dashboard> div > p{
+    font-size: 2.9em;
+    margin-top: -11px;
+    color: var(--secondary-font-color);
+}   
+.landlord-dashboard > div > a {
+    text-decoration: none;
+    color: #000;
+    margin-top: -10px;
+}
 
 
 

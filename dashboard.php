@@ -15,43 +15,71 @@
 </head>
 
 <body>
-    <nav class="navbar navigation-bar d-flex justify-content-between">
-        <div class="container-fluid ">
-            <a href="#" class="navbar-brand">
-                <img class="navbar-logo d-inline-block align-text-center" src="./images/AW-logo.png" alt="Navbar Logo"> <span>Apartment Watch</span>
-            </a>
-        </div>
-    </nav>
 
     <div class="body-content d-flex">
         <div class="side-nav-bar d-none d-sm-block">
-            <div class="acc-manager p-2 d-flex align-items-center">
-                <img src="./images/icon.png" alt="Landlord Image">
-                <p class="mt-2 mx-2">Charles Laurence Gula</p>
-            </div>
-            <nav class="navbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link mx-3" href=""><i class="bi bi-grid"></i> Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-3" href=""><i class="bi bi-building-check"></i> Apartment Status</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-3" href=""><i class="bi bi-person-exclamation"></i> Tenants Information</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-3" href=""><i class="bi bi-activity"></i> Commerce</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-3" href=""><i class="bi bi-box-arrow-left"></i> Log Out</a>
-                    </li>
-                </ul>
-            </nav>
+            <?php include './includes/navigation.php' ?>
         </div>
 
-        <div class="main-content">
+        <div class="main-content container-fluid p-4">
 
+            <div class="landlord-info contianer-fluid d-flex align-items-center justify-content-between ">
+                <div class="d-flex align-items-center justify-content-start p-2">
+                    <img class="owner-img" src="./images/person.png" alt="Landlord Image">
+                    <div class="owner-name mx-2">
+                        <p class="fs-4 fw-bold">Landlord Name</p>
+                        <p class="fst-italic">Owner</p>
+                    </div>
+                </div>
+                <div>
+                    <p><span class="fw-bold">Apartment Name:</span> Apartment Name</p>
+                    <p><span class="fw-bold">Location:</span> Apartment Location</p>
+                    <p><span class="fw-bold">Price Range:</span> Price Range of every room</p>
+                </div>
+            </div>
+
+            <div class="landlord-dashboard mt-5 d-flex flex-wrap align-items-center justify-content-start">
+                <div class="apartment-card p-3 d-flex flex-column">
+                    <div class="d-flex justify-content-between">
+                        <p class="mt-2">Total Apartments</p>
+                        <i class="bi bi-buildings fs-4"></i>
+                    </div>
+                    <p class="">10</p>
+                    <a class="text-end" href="">View Apartments</a>
+                </div>
+                <div class="tenants-card p-3 d-flex flex-column">
+                    <div class="d-flex justify-content-between">
+                        <p class="mt-2">Number of Tenants</p>
+                        <i class="bi bi-people fs-4"></i>
+                    </div>
+                    <p class="">54</p>
+                    <a class="text-end" href="">Tenants Information</a>
+                </div>
+                <div class="rooms-card p-3 d-flex flex-column">
+                    <div class="d-flex justify-content-between">
+                        <p class="mt-2">Total Rooms</p>
+                        <i class="bi bi-door-open fs-4"></i>
+                    </div>
+                    <p class="">23</p>
+                    <a class="text-end align-self-end" href="">Check Rooms</a>
+                </div>
+                <div class="income-card p-3 d-flex flex-column">
+                    <div class="d-flex justify-content-between">
+                        <p class="mt-2">Expected Income</p>
+                        <i class="bi bi-graph-up-arrow fs-4"></i>
+                    </div>
+                    <p class="">P18374</p>
+                    <a class="text-end" href="">Check Payments </a>
+                </div>
+                <div class="income-card p-3 d-flex flex-column">
+                    <div class="d-flex justify-content-between">
+                        <p class="mt-2">Expenses</p>
+                        <i class="bi bi-clipboard-data fs-4"></i>
+                    </div>
+                    <p class="">P5843</p>
+                    <a class="text-end" href="">Expenses Breakdown</a>
+                </div>
+            </div>
         </div>
 
     </div>
