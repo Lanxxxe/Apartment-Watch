@@ -1,0 +1,56 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --body-color: #304647;
+    --card-color: #4d595a;
+    --mdj-white: #d4dddd;
+    --title-color: #385e62;
+    --font-color: #9ec7c5;
+    --secondary-font-color: #2a9ba7;
+    --button-color: #83b6b4;
+    --button-hover-color: #8bc6c4;
+    --text-hover: #7ba9a8;
+}
+
+body {
+    background-color: var(--card-color);
+    min-height: 100vh;
+}
+.navbar-logo {
+    width: 50px;
+    height: auto;
+    margin-right: -15px;
+}
+
+.logo-container > p {
+    font-weight: 700;
+    color: #000;
+    font-size: 0.95rem;
+    padding-bottom: -10px;
+}
+.logo-container {
+    text-wrap: wrap;
+}
+
+.side-nav-bar, .main-content {
+    height: 100vh;
+}
+.main-content {
+    flex: 82%;
+}
+.side-nav-bar {
+    flex: 18%;
+    background-color: var(--mdj-white);
+}
+.side-nav-bar a {
+    font-weight: 500;
+    font-size: 0.92rem;
+}
+.side-nav-bar a:hover {
+    color: var(--text-hover);
+}

@@ -1,0 +1,45 @@
+.apartment-name > p {
+    color: #fff;
+    font-size: 1.11rem;
+}
+table {
+    width: 100%;
+    border-collapse: separate; /* Use separate border-collapse */
+    border-spacing: 12px;
+    /* border: 1px solid #dadada; */
+
+}
+table thead, table tbody {
+    gap: 20px;
+}
+table thead tr td{
+    background-color: #6e9497;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+table tbody tr:nth-child(even) {
+    background-color: #ffffff32;
+}
+table thead tr td, table tbody tr td  {
+    width: 20%;
+    text-align: start;
+    padding: 0;
+    font-size: 0.86rem;
+    color: #fff;
+    padding: 7px;
+    /* border: 1px solid black; */
+    gap: 10px;
+}
+.add-tenant, .remove-tenant {
+    font-size: 0.76rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    /* background-color: none; */
+}
+.add-tenant {
+    background-color: hsl(120, 50%, 60%);
+}
+.remove-tenant {
+    background-color: hsl(0, 64%, 60%);
+}

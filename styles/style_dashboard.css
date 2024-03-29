@@ -1,58 +1,3 @@
-* {
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-:root {
-    --body-color: #304647;
-    --card-color: #4d595a;
-    --mdj-white: #d4dddd;
-    --title-color: #385e62;
-    --font-color: #9ec7c5;
-    --secondary-font-color: #2a9ba7;
-    --button-color: #83b6b4;
-    --button-hover-color: #8bc6c4;
-    --text-hover: #7ba9a8;
-
-}
-
-body {
-    background-color: var(--card-color);
-    min-height: 100vh;
-}
-.navbar-logo {
-    width: 50px;
-    height: auto;
-    margin-right: -15px;
-    
-}
-.logo-container > p {
-    font-weight: 700;
-    color: #000;
-    font-size: 18px;
-    padding-bottom: -10px;
-}
-.logo-container {
-    text-wrap: wrap;
-}
-
-.side-nav-bar, .main-content {
-    /* border: 1px solid red; */
-    height: 100vh;
-}
-.side-nav-bar {
-    flex: 18%;
-    background-color: var(--mdj-white);
-}
-.side-nav-bar a {
-    font-weight: 500;
-}
-.side-nav-bar a:hover {
-    color: var(--text-hover);
-}
-
 .acc-manager > img {
     width: 50px;
     height: 50px;
@@ -60,17 +5,14 @@ body {
 }
 
 /* MAIN CONTENT STYLES */
-.main-content {
-    flex: 82%;
-}
 .landlord-info {
     width: auto;
-    height: 27vh;
+    height: 23vh;
     border-radius: 10px;
     background-color: var(--mdj-white);
-    box-shadow: 2px 3px 8px rgba(239, 239, 239, 0.47);
-    -webkit-box-shadow: 2px 3px 8px rgba(239, 239, 239, 0.47);
-    -moz-box-shadow: 2px 3px 8px rgba(239, 239, 239, 0.47);
+    box-shadow: 1px 2px 3px #d4dddde1;
+    -webkit-box-shadow: 1px 2px 3px #d4dddde1;
+    -moz-box-shadow: 1px 2px 3px #d4dddde1;
 }
 .landlord-info > div {
     flex: 1;
@@ -84,37 +26,41 @@ body {
 
 .owner-name > p:nth-child(2){
     margin-top: -16px;
+    font-size: 0.94rem;
 }
 
+.owners-apartment-description > p {
+    font-size: 0.83rem;
+}
+
+
 .landlord-dashboard {
-    /* border: 1px solid red; */
-    gap: 37px;
+    gap: 28px;
 }
 .landlord-dashboard > div {
-    width: 301px;
-    height: 171px;
+    width: 307px;
+    height: 132px;
     background-color: var(--mdj-white);
     border-radius: 7px;
     border: none;
-    box-shadow: 2px 3px 4px rgba(239, 239, 239, 0.47);
-    -webkit-box-shadow: 2px 3px 4px rgba(239, 239, 239, 0.47);
-    -moz-box-shadow: 2px 3px 4px rgba(239, 239, 239, 0.47);
-}
-
-.landlord-dashboard > div > div {
-    padding-bottom: -20px;
-    /* border: 1px solid black; */
+    box-shadow: 1px 2px 3px #d4dddde1;
+    -webkit-box-shadow: 1px 2px 3px #d4dddde1;
+    -moz-box-shadow: 1px 2px 3px #d4dddde1;
 }
 .landlord-dashboard > div > div > i {
-
+    font-size: 0.94rem;
+}
+.landlord-dashboard > div > div > p {
+    font-size: 0.83rem;
 }
 .landlord-dashboard> div > p{
-    font-size: 2.9em;
+    font-size: 1.67rem;
     margin-top: -11px;
     color: var(--secondary-font-color);
 }   
 .landlord-dashboard > div > a {
     text-decoration: none;
+    font-size: 0.83rem;
     color: #000;
     margin-top: -10px;
 }

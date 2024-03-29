@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./styles/interface.css">
     <link rel="stylesheet" href="./styles/style_dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,11 +28,11 @@
                 <div class="d-flex align-items-center justify-content-start p-2">
                     <img class="owner-img" src="./images/person.png" alt="Landlord Image">
                     <div class="owner-name mx-2">
-                        <p class="fs-4 fw-bold">Landlord Name</p>
+                        <p class="fs-5 fw-bold">Landlord Name</p>
                         <p class="fst-italic">Owner</p>
                     </div>
                 </div>
-                <div>
+                <div class="owners-apartment-description">
                     <p><span class="fw-bold">Apartment Name:</span> Apartment Name</p>
                     <p><span class="fw-bold">Location:</span> Apartment Location</p>
                     <p><span class="fw-bold">Price Range:</span> Price Range of every room</p>
@@ -45,7 +46,7 @@
                         <i class="bi bi-buildings fs-4"></i>
                     </div>
                     <p class="">10</p>
-                    <a class="text-end" href="">View Apartments</a>
+                    <a class="text-end " href="">View Apartments</a>
                 </div>
                 <div class="tenants-card p-3 d-flex flex-column">
                     <div class="d-flex justify-content-between">
@@ -53,7 +54,7 @@
                         <i class="bi bi-people fs-4"></i>
                     </div>
                     <p class="">54</p>
-                    <a class="text-end" href="">Tenants Information</a>
+                    <a class="text-end " href="">Tenants Information</a>
                 </div>
                 <div class="rooms-card p-3 d-flex flex-column">
                     <div class="d-flex justify-content-between">
@@ -61,7 +62,7 @@
                         <i class="bi bi-door-open fs-4"></i>
                     </div>
                     <p class="">23</p>
-                    <a class="text-end align-self-end" href="">Check Rooms</a>
+                    <a class="text-end " href="">Check Rooms</a>
                 </div>
                 <div class="income-card p-3 d-flex flex-column">
                     <div class="d-flex justify-content-between">
@@ -69,7 +70,7 @@
                         <i class="bi bi-graph-up-arrow fs-4"></i>
                     </div>
                     <p class="">P18374</p>
-                    <a class="text-end" href="">Check Payments </a>
+                    <a class="text-end " href="">Check Payments </a>
                 </div>
                 <div class="income-card p-3 d-flex flex-column">
                     <div class="d-flex justify-content-between">
@@ -77,7 +78,7 @@
                         <i class="bi bi-clipboard-data fs-4"></i>
                     </div>
                     <p class="">P5843</p>
-                    <a class="text-end" href="">Expenses Breakdown</a>
+                    <a class="text-end " href="">Expenses Breakdown</a>
                 </div>
             </div>
         </div>

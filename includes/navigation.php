@@ -3,7 +3,7 @@
         <a href="#" class="navbar-brand">
             <img class="navbar-logo d-inline-block align-text-center" src="./images/AW-logo.png" alt="Navbar Logo">
         </a>
-        <p class="mt-3">Apartment Watch</p>
+        <p class="mt-4">Apartment Watch</p>
     </div>
     <ul class="navbar-nav mt-3">
         <li class="nav-item">
