@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-10T21:55:31.071Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="L7gmKjvUPjEAomh4eKai" version="24.2.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-10T21:59:51.149Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="DpYkqc6-zKcI6zuPx0y2" version="24.2.2" type="github">
   <diagram name="Page-1" id="4S_eQzZyzQE8U2v67EGx">
-    <mxGraphModel dx="2438" dy="2100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
+    <mxGraphModel dx="2173" dy="1933" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -369,9 +369,6 @@
         </mxCell>
         <mxCell id="mMjxVElTghCEOHuVOSHr-1" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Business: Real Estate&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="352.5" y="-35" width="255" height="35" as="geometry" />
-        </mxCell>
-        <mxCell id="1hY49j8_6AW0tEClo4me-1" value="Attribute" style="ellipse;shape=doubleEllipse;margin=3;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="140" width="100" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
