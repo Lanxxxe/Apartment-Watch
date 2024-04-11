@@ -19,13 +19,13 @@
 }
 
 .owner-img {
-    width: 25%;
-    height: 25%;
-    border-radius: 5%;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 2rem;
 }
 
 .owner-name > p:nth-child(2){
-    margin-top: -16px;
+    margin-top: -1rem;
     font-size: 0.94rem;
 }
 

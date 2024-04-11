@@ -15,7 +15,7 @@
     <title>A.W. | Dashboard</title>
 </head>
 
-<body>
+<body>  
 
     <div class="body-content d-flex">
         <div class="side-nav-bar d-none d-sm-block">
@@ -25,18 +25,18 @@
         <div class="main-content container-fluid p-4">
 
             <div class="landlord-info contianer-fluid d-flex align-items-center justify-content-between ">
-                <div class="d-flex align-items-center justify-content-start p-2">
+                <div class="d-flex align-items-center justify-content-start p-2 gap-2">
                     <img class="owner-img" src="./images/person.png" alt="Landlord Image">
                     <div class="owner-name mx-2">
                         <p class="fs-5 fw-bold">Landlord Name</p>
                         <p class="fst-italic">Owner</p>
                     </div>
                 </div>
-                <div class="owners-apartment-description">
+                <!-- <div class="owners-apartment-description">
                     <p><span class="fw-bold">Apartment Name:</span> Apartment Name</p>
                     <p><span class="fw-bold">Location:</span> Apartment Location</p>
                     <p><span class="fw-bold">Price Range:</span> Price Range of every room</p>
-                </div>
+                </div> -->
             </div>
 
             <div class="landlord-dashboard mt-5 d-flex flex-wrap align-items-center justify-content-start">

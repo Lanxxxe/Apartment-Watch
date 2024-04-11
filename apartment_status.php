@@ -29,7 +29,7 @@
             <div class="mt-2">
                 <div class="apartment-name d-flex align-items-center justify-content-between px-2">
                     <p class="fw-bold">Apartment Name</p>
-                    <p class="fw-bold">Apartment Address</p>
+                    <p class="fw-light">Apartment Address</p>
                 </div>
                 <table class="">
                     <thead>
