@@ -48,8 +48,8 @@
                             <td>P5000</td>
                             <td>Vacant</td>
                             <td>
-                                <button class="add-tenant" type="button">Add</button>
-                                <button class="remove-tenant" type="button">Remove</button>
+                                <button class="add-tenant" type="button">Add Tenant</button>
+                                <button class="remove-tenant" type="button">Remove Tenant</button>
                             </td>
                         </tr>
                         <tr>
@@ -58,8 +58,8 @@
                             <td>P5000</td>
                             <td>Vacant</td>
                             <td>
-                                <button class="add-tenant" type="button">Add</button>
-                                <button class="remove-tenant" type="button">Remove</button>
+                                <button class="add-tenant" type="button">Add Tenant</button>
+                                <button class="remove-tenant" type="button">Remove Tenant</button>
                             </td>
                         </tr>
                         <tr>
@@ -68,8 +68,8 @@
                             <td>P5000</td>
                             <td>Vacant</td>
                             <td>
-                                <button class="add-tenant" type="button">Add</button>
-                                <button class="remove-tenant" type="button">Remove</button>
+                                <button class="add-tenant" type="button">Add Tenant</button>
+                                <button class="remove-tenant" type="button">Remove Tenant</button>
                             </td>
                         </tr>
                         <tr>
@@ -78,8 +78,8 @@
                             <td>P5000</td>
                             <td>Vacant</td>
                             <td>
-                                <button class="add-tenant" type="button">Add</button>
-                                <button class="remove-tenant" type="button">Remove</button>
+                                <button class="add-tenant" type="button">Add Tenant</button>
+                                <button class="remove-tenant" type="button">Remove Tenant</button>
                             </td>
                         </tr>
                     </tbody>

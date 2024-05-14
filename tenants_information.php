@@ -24,8 +24,33 @@
 
         <!-- Apartment Name, Location, Total Rooms, Vacant, Occupied, Under Maintenance -->
     
-        <div class="main-content container-fluid p-4">
+        <div class="main-content container-fluid p-4 d-flex align-items-start justify-content-start gap-4 flex-wrap">
+            <div class="card" style="width: 18rem;">
+                <img src="./images/person.png" class="card-img-top rounded-circle mx-auto" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Tenant Name</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Apartment: <span class="fw-bold">Rose</span></li>
+                    <li class="list-group-item">Room Number: <span class="fw-bold">R103</span></li>
+                    <li class="list-group-item">Monthly Payment: <span class="fw-bold">&#x20B1;4000</span></li>
+                    <li class="list-group-item">Due Date: <span class="fw-bold">15th</span> day</li>
+                </ul>
+            </div>
 
+
+            <div class="card" style="width: 18rem;">
+                <img src="./images/person.png" class="card-img-top rounded-circle mx-auto" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Tenant Name</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Apartment: <span class="fw-bold">Rose</span></li>
+                    <li class="list-group-item">Room Number: <span class="fw-bold">R103</span></li>
+                    <li class="list-group-item">Monthly Payment: <span class="fw-bold">&#x20B1;4000</span></li>
+                    <li class="list-group-item">Due Date: <span class="fw-bold">15th</span> day</li>
+                </ul>
+            </div>
         </div>
 
     </div>
