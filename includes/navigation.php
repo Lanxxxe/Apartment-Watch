@@ -8,17 +8,17 @@
     <ul class="navbar-nav mt-3">
         <?php 
             $navigation_links = array (
-                'Dashboard' => 'dashboard.php',
-                'Apartment Status' => 'apartment_status.php',
-                'Tenants Information' => 'tenants_information.php',
-                'Commerce' => 'commerce.php',
-                'Log Out' => 'logout.php'
+                'Dashboard' => ['dashboard.php', 'bi bi-bar-chart'],
+                'Apartment Status' => ['apartment_status.php', 'bi bi-building-check'],
+                'Tenants Information' => ['tenants_information.php', 'bi bi-person-bounding-box'],
+                'Commerce' => ['commerce.php', 'bi bi-diagram-3'],
+                'Log Out' => ['logout.php', 'bi bi-arrow-bar-left']
             );
 
             foreach($navigation_links as $navItem => $navLink) {
                 echo "
                 <li class='nav-item'>
-                    <a class='nav-link mx-3' href='$navLink'><i class='bi bi-building-check'></i> $navItem</a>
+                    <a class='nav-link mx-3' href='$navLink[0]'><i class='$navLink[1]'></i> $navItem</a>
                 </li>
                 ";
             };
