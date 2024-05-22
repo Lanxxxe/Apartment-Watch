@@ -32,11 +32,6 @@
                         <p class="fst-italic">Owner</p>
                     </div>
                 </div>
-                <!-- <div class="owners-apartment-description">
-                    <p><span class="fw-bold">Apartment Name:</span> Apartment Name</p>
-                    <p><span class="fw-bold">Location:</span> Apartment Location</p>
-                    <p><span class="fw-bold">Price Range:</span> Price Range of every room</p>
-                </div> -->
             </div>
 
             <div class="landlord-dashboard mt-5 d-flex flex-wrap align-items-center justify-content-start">
