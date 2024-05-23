@@ -1,6 +1,6 @@
 <?php
 
-$Data_Source_Name = "mysql:host=localhost;dbname=apartment_db";
+$Data_Source_Name = "mysql:host=localhost;dbname=apartment_watch_database";
 $Database_Username = "root";
 $Database_Password = "";
 

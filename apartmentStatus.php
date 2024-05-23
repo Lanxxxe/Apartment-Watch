@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 include_once './includes/header.php';
 ?>
-    <link rel="stylesheet" href="./styles/style_apartment_status.css">
-    <title>A.W. | Apartments</title>
+<link rel="stylesheet" href="./styles/style_apartment_status.css">
+<title>A.W. | Apartments</title>
 </head>
 
 <body>
