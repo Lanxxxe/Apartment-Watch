@@ -5,18 +5,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_password = $_POST["password"];
 
     try {
-        require_once "databaseConnection.php"; // Ensure this file sets up $PDO (not $PHP_Data_Object)
+        require_once "databaseConnection.php";
 
-        $query = "SELECT owner_password FROM owner_acc_table WHERE owner_username = :Owner_Username";
-
-        $statement = $PHP_Data_Object->prepare($query); // Changed $PHP_Data_Object to $PDO
+        $query = "SELECT Account_ID, owner_password, First_Name, Last_Name FROM owner_acc_table WHERE owner_username = :Owner_Username";
+        $statement = $PHP_Data_Object->prepare($query);
         $statement->bindParam(':Owner_Username', $user_username, PDO::PARAM_STR);
 
         if ($statement->execute()) {
-            $stored_password = $statement->fetchColumn();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-            // Check if the password is correct (assuming passwords are hashed)
-            if ($stored_password == $user_password) {
+            if ($result && $user_password == $result['owner_password']) {
+                session_start();
+                $_SESSION['user_id'] = $result['Account_ID'];
+                $_SESSION['FirstName'] = $result['First_Name'];
+                $_SESSION['LastName'] = $result['Last_Name'];
+
                 header("Location: ../dashboard.php");
                 exit();
             } else {

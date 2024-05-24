@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 include_once './includes/header.php';
 ?>
     <link rel="stylesheet" href="./styles/style_dashboard.css">
@@ -19,7 +19,7 @@ include_once './includes/header.php';
                 <div class="d-flex align-items-center justify-content-start p-2 gap-2">
                     <img class="owner-img" src="./images/person.png" alt="Landlord Image">
                     <div class="owner-name mx-2">
-                        <p class="fs-5 fw-bold">Landlord Name</p>
+                        <p class="fs-5 fw-bold"><?php echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName'] ?> </p>
                         <p class="fst-italic">Owner</p>
                     </div>
                 </div>
@@ -31,8 +31,46 @@ include_once './includes/header.php';
                         <p class="mt-2">Total Apartments</p>
                         <i class="bi bi-buildings fs-4"></i>
                     </div>
-                    <p class="">10</p>
-                    <a class="text-end " href="">View Apartments</a>
+                    <?php
+                    try {
+                        require_once "includes/databaseConnection.php"; // Adjust the path as needed
+                    
+                        // Ensure the user is logged in and user_id is set in the session
+                        if (isset($_SESSION['user_id'])) {
+                            $user_id = $_SESSION['user_id'];
+                    
+                            $query = "
+                                SELECT owner_acc_table.account_id, COUNT(building_table.owner_id) AS apartments
+                                FROM owner_acc_table
+                                LEFT JOIN building_table ON owner_acc_table.account_id = building_table.owner_id
+                                WHERE owner_acc_table.account_id = :user_id
+                                GROUP BY owner_acc_table.account_id;
+                            ";
+                            
+                            $statement = $PHP_Data_Object->prepare($query);
+                            $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                    
+                            if ($statement->execute()) {
+                                $result = $statement->fetch(PDO::FETCH_ASSOC);
+                                $total_apartments = $result['apartments'];
+                    
+                                // Display the total count in the <p> tag
+                                echo '<p class="">' . $total_apartments . '</p>';
+                            } else {
+                                echo '<p class="">Query execution failed.</p>';
+                            }
+                    
+                            // Close the connection
+                            $PHP_Data_Object = null;
+                            $statement = null;
+                        } else {
+                            echo '<p class="">User is not logged in.</p>';
+                        }
+                    } catch (PDOException $error) {
+                        echo '<p class="">Failed: ' . $error->getMessage() . '</p>';
+                    }
+                    ?>
+                    <a class="text-end" href="">View Apartments</a>
                 </div>
                 <div class="tenants-card p-3 d-flex flex-column">
                     <div class="d-flex justify-content-between">

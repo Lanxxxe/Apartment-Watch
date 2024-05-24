@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2024 at 01:10 AM
+-- Generation Time: May 24, 2024 at 04:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,6 +51,15 @@ CREATE TABLE `owner_acc_table` (
   `Owner_Password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `owner_acc_table`
+--
+
+INSERT INTO `owner_acc_table` (`Account_ID`, `Last_Name`, `First_Name`, `Owner_Username`, `Owner_Password`) VALUES
+(1000, 'decio', 'eloisa', 'eloisa', 'eloisa123'),
+(1001, 'kkj', 'lakjh', 'sampleUsername', 'password'),
+(1002, 'Egloso', 'Alyssa', 'alyssa23', 'password');
+
 -- --------------------------------------------------------
 
 --
@@ -59,10 +68,10 @@ CREATE TABLE `owner_acc_table` (
 
 CREATE TABLE `payments` (
   `Payment_ID` int(11) NOT NULL,
-  `Tenant_ID` int(11) NOT NULL,
   `Payment_Status` text DEFAULT NULL,
   `Monthly_Payment` int(11) DEFAULT NULL,
-  `Monthly_Due_Date` text DEFAULT NULL
+  `Monthly_Due_Date` text DEFAULT NULL,
+  `tenant_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -116,15 +125,15 @@ ALTER TABLE `owner_acc_table`
 --
 ALTER TABLE `payments`
   ADD PRIMARY KEY (`Payment_ID`),
-  ADD KEY `fk_payment_id` (`Tenant_ID`);
+  ADD KEY `fk_tenant_id` (`tenant_id`);
 
 --
 -- Indexes for table `rooms_table`
 --
 ALTER TABLE `rooms_table`
   ADD PRIMARY KEY (`Room_ID`),
-  ADD KEY `fk_tenant_id` (`Tenant_ID`),
-  ADD KEY `fk_apartment_id` (`Apartment_ID`);
+  ADD KEY `fk_apartment_id` (`Apartment_ID`),
+  ADD KEY `Tenant_ID` (`Tenant_ID`);
 
 --
 -- Indexes for table `tenants_table`
@@ -141,7 +150,7 @@ ALTER TABLE `tenants_table`
 -- AUTO_INCREMENT for table `owner_acc_table`
 --
 ALTER TABLE `owner_acc_table`
-  MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
+  MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -169,14 +178,14 @@ ALTER TABLE `building_table`
 -- Constraints for table `payments`
 --
 ALTER TABLE `payments`
-  ADD CONSTRAINT `fk_payment_id` FOREIGN KEY (`Tenant_ID`) REFERENCES `tenants_table` (`Tenant_ID`);
+  ADD CONSTRAINT `fk_tenant_id` FOREIGN KEY (`tenant_id`) REFERENCES `tenants_table` (`Tenant_ID`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `rooms_table`
 --
 ALTER TABLE `rooms_table`
-  ADD CONSTRAINT `fk_apartment_id` FOREIGN KEY (`Apartment_ID`) REFERENCES `building_table` (`Building_ID`),
-  ADD CONSTRAINT `fk_tenant_id` FOREIGN KEY (`Tenant_ID`) REFERENCES `tenants_table` (`Tenant_ID`);
+  ADD CONSTRAINT `fk_apartment_id` FOREIGN KEY (`Apartment_ID`) REFERENCES `building_table` (`Building_ID`) ON DELETE SET NULL,
+  ADD CONSTRAINT `rooms_table_ibfk_1` FOREIGN KEY (`Tenant_ID`) REFERENCES `tenants_table` (`Tenant_ID`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `tenants_table`
