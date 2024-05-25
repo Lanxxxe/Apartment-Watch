@@ -74,8 +74,10 @@ include_once './includes/header.php';
                             </td>
                         </tr>
                     </tbody>
-                    <tr></tr>
                 </table>
+                <div>
+                    <button class="btn" type="button">Add Apartment</button>
+                </div>
             </div>
         </div>
 
