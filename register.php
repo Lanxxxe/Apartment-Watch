@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./images/AW-logo.png" type="image/x-icon">
 
-    <title>Apartment Watch | Login</title>
+    <title>Apartment Watch | Registration</title>
 </head>
 
 <body>
@@ -30,19 +30,27 @@
 
         <div class="login-container d-flex align-items-center justify-content-center flex-column p-5">
             <div class="mb-4">
-                <h2 class="text-center">Log In</h2>
+                <h2 class="text-center">Registration</h2>
             </div>
-            <form action="includes/verifyUser.php" method="posT">
-                <div class="mb-3 d-flex flex-column">
-                    <label for="username" class="mb-2">Username</label>
-                    <input type="text" class="" name="username" id="username" required>
+            <form action="includes/registerNewUser.php" method="posT">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="firstname" id="floatingInput" placeholder="">
+                    <label for="floatingInput">First Name</label>
                 </div>
-                <div class="mb-3 d-flex flex-column">
-                    <label for="password" class="mb-2">Password</label>
-                    <input type="password" class="" name="password" id="password" required>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="lastname" id="floatingInput" placeholder="">
+                    <label for="floatingInput">Last Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="username" id="floatingInput" placeholder="">
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" name="password" id="floatingInput" placeholder="">
+                    <label for="floatingInput">Password</label>
                 </div>
 
-                <button class="d-block mt-4" id="submit-button" type="submit">Proceed</button>
+                <button class="d-block mt-4" id="submit-button" type="submit">Register</button>
             </form>
         </div>
     </div>

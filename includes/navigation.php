@@ -10,10 +10,10 @@
         
             $navigation_links = array (
                 'Dashboard' => ['dashboard.php', 'bi bi-bar-chart'],
-                'Apartment Status' => ['apartment_status.php', 'bi bi-building-check'],
-                'Tenants Information' => ['tenants_information.php', 'bi bi-person-bounding-box'],
+                'Apartment Status' => ['apartmentStatus.php', 'bi bi-building-check'],
+                'Tenants Information' => ['tenantsInformation.php', 'bi bi-person-bounding-box'],
                 'Commerce' => ['commerce.php', 'bi bi-diagram-3'],
-                'Log Out' => ['logout.php', 'bi bi-arrow-bar-left']
+                'Log Out' => ['./includes/logout.php', 'bi bi-arrow-bar-left']
             );
 
             foreach($navigation_links as $navItem => $navLink) {
