@@ -7,6 +7,7 @@
     </div>
     <ul class="navbar-nav mt-3">
         <?php 
+        
             $navigation_links = array (
                 'Dashboard' => ['dashboard.php', 'bi bi-bar-chart'],
                 'Apartment Status' => ['apartmentStatus.php', 'bi bi-building-check'],
