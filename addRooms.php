@@ -31,7 +31,7 @@ include_once './includes/header.php';
 
         ?>
         
-        <form action='./includes/insertRooms.php' method='post'>
+        <form action='./model/insertRooms.php' method='post'>
             <?php
             $Rooms = (int)$RoomNumber; // Ensure $Rooms is an integer
             while ($Rooms > 0) {
@@ -63,10 +63,10 @@ include_once './includes/header.php';
                     </div>
                 </div>
             <?php
-                $Rooms--; // Decrement the Rooms variable
+                $Rooms--; 
             }
             ?>
-            <button type='submit' class='btn btn-primary'>Submit</button>
+            <button type='submit' class='add-rooms-btn mx-auto'>Submit</button>
         </form>
         <?php
             } else {

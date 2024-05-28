@@ -13,6 +13,7 @@
                 'Apartment Status' => ['apartmentStatus.php', 'bi bi-building-check'],
                 'Room Status' => ['roomStatus.php', 'bi bi-door-open'],
                 'Tenants Information' => ['tenantsInformation.php', 'bi bi-person-bounding-box'],
+                'Payments' => ['paymentStatus.php', 'bi bi-cash-coin'],
                 'Log Out' => ['./includes/logout.php', 'bi bi-arrow-bar-left']
             );
 

@@ -32,7 +32,7 @@
             <div class="mb-4">
                 <h2 class="text-center">Registration</h2>
             </div>
-            <form action="includes/registerNewUser.php" method="posT">
+            <form action="model/registerNewUser.php" method="posT">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" name="firstname" id="floatingInput" placeholder="">
                     <label for="floatingInput">First Name</label>
@@ -55,8 +55,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <?php include './includes/footer.php' ?>
 </body>
 
 </html>

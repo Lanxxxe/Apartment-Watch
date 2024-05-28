@@ -1,5 +1,5 @@
 <?php
-include './includes/databaseConnection.php';
+include './databaseConnection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $RoomNumber = $_POST['roomnumber'];
@@ -35,6 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $PHP_Data_Object = null;
     $statement = null;
 
-    header('Location: ./roomStatus.php');
+    header('Location: ../roomStatus.php');
     exit();
 }

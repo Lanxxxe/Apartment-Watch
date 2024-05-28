@@ -6,7 +6,7 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Apartment</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
-        <form action="./includes/insertApartment.php" method="POST">
+        <form action="./model/insertApartment.php" method="POST">
             <div class="modal-body">
 
                 <input class="form-control" type="text" name="AdminID" value="<?php echo $_SESSION['user_id'] ?>" hidden>

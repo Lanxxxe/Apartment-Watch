@@ -23,7 +23,7 @@ include_once './includes/header.php';
 
         <div class="main-content container-fluid p-4">
 
-            <div class="mt-2" data-aos="fade-up"  data-aos-duration="1400">
+            <div class="mt-2">
                 <div class="apartment-name d-flex align-items-center justify-content-between px-2">
                     <p class="fw-bold">Owner Name</p>
                 </div>
@@ -105,7 +105,6 @@ include_once './includes/header.php';
     
 
     <?php include './includes/footer.php' ?>
-
 </body>
 
 </html>
