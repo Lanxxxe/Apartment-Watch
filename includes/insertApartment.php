@@ -4,13 +4,13 @@ include './databaseConnection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $UserID = $_POST['AdminID'];
-    $ApartmentID = $_POST['AdminID'] . '' . $_POST['BuildingName'];
+    $ApartmentID = $_POST['AdminID'] . '_' . $_POST['BuildingName'];
     $Name = $_POST['BuildingName'];
     $StreetAddress = $_POST['StreetAddress'];
     $CityAddress = $_POST['CityAddress'];
     $Status = $_POST['Status'];
-    $TotalRooms = $_POST['roomnumber'];
-
+    $TotalRooms = $_POST['TotalRooms'];
+    
 
     $query = "INSERT INTO building_table (Building_ID, Owner_ID, Building_Name, Building_Street_Address, Building_City_Address, Building_Status, Total_Rooms) VALUES (:building_id, :admin_id, :building_name, :street_address, :city_address, :building_status, :total_rooms)";
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($statement->execute()) {
         $PimaryKey = $PHP_Data_Object->lastInsertId();
-        header('Location: ../addRooms.php?key=' .$ApartmentID . '&buildingName=' . urlencode($Name)) . '&Rooms=' . $TotalRooms;
+        header('Location: ../addRooms.php?key=' . $ApartmentID . '&buildingName=' . urlencode($Name) . '&TotalRooms=' . $TotalRooms);
         exit();
     } else {
         echo 'An Error occur';
