@@ -23,71 +23,48 @@ include_once './includes/header.php';
         <div class="main-content container-fluid p-4">
             <?php 
                 if (isset($_GET['key']) && isset($_GET['buildingName']) && isset($_GET['Rooms'])){
-                $Rooms = $_GET['Rooms'];
+                $RoomNumber = $_GET['Rooms'];
                 $BuildingName = $_GET['buildingName'];
                 $ApartmentID = $_GET['key'];
-                
-                while ($Rooms > 0){
-                    $RoomID = $BuildingName . ' ' . $Rooms;
                 ?>
-                    <form action="">
-                        <div class="insert-rooms">
-                            <div class="d-flex align-items-center justify-content-start gap-2">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="RoomID" value="<?php echo $RoomID?> " placeholder="<?php echo $RoomID?> " disabled>
-                                    <label for="floatingInput">Room ID</label>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="ApartmentID" value="<?php echo $ApartmentID ?>" placeholder="<?php echo $ApartmentID ?>" disabled>
-                                    <label for="floatingInput">Apartment ID</label>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                    <label for="floatingPassword">Room Type</label>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                    <label for="floatingPassword">Room Status</label>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                    <label for="floatingPassword">Rent Amount</label>
+                
+                <form action='./includes/insertRooms.php'>
+                    <?php
+                    while ($Rooms > 0){
+                        $RoomID = $Rooms . '_' . $BuildingName;
+                    ?>
+                            <div class='insert-rooms'>
+                                <div class='d-flex align-items-center justify-content-start gap-2'>
+                                    <input type="number" value="<?php echo $RoomNumber ?>" name="roomnumber" hidden>
+                                    <div class='form-floating'>
+                                        <input type='email' class='form-control' name='roomid' value='<?php echo $RoomID?> ' placeholder='<?php echo $RoomID?> ' disabled>
+                                        <label for='floatingInput'>Room ID</label>
+                                    </div>
+                                    <div class='form-floating'>
+                                        <input type='email' class='form-control' id='ApartmentID' name="apartmentid" value='<?php echo $ApartmentID ?>' placeholder='<?php echo $ApartmentID ?>' disabled>
+                                        <label for='floatingInput'>Apartment ID</label>
+                                    </div>
+                                    <div class='form-floating'>
+                                        <input type='password' class='form-control' name="<?php 'roomtype' . '' . $Rooms ?>" id='floatingPassword' placeholder='Password'>
+                                        <label for='floatingPassword'>Room Type</label>
+                                    </div>
+                                    <div class='form-floating'>
+                                        <input type='password' class='form-control' name="<?php 'roomstatus' . '' . $Rooms ?>" id='floatingPassword' placeholder='Password'>
+                                        <label for='floatingPassword'>Room Status</label>
+                                    </div>
+                                    <div class='form-floating'>
+                                        <input type='password' class='form-control' name="<?php 'rentamount' . '' . $Rooms ?>" id='floatingPassword' placeholder='Password'>
+                                        <label for='floatingPassword'>Rent Amount</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <?php
+                    }
+                    ?>
                     </form>
                 <?php
-                    }
                 }
-            
-            
             ?>
-            <form action="">
-                <div class="insert-rooms">
-                    <div class="d-flex align-items-center justify-content-start gap-2">
-                        <div class="form-floating">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" disabled>
-                            <label for="floatingInput">Room ID</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" disabled>
-                            <label for="floatingInput">Apartment ID</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Room Type</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Room Status</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Rent Amount</label>
-                        </div>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 
