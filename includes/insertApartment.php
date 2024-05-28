@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $StreetAddress = $_POST['StreetAddress'];
     $CityAddress = $_POST['CityAddress'];
     $Status = $_POST['Status'];
-    $TotalRooms = $_POST['TotalRooms'];
+    $TotalRooms = $_POST['roomnumber'];
 
 
     $query = "INSERT INTO building_table (Building_ID, Owner_ID, Building_Name, Building_Street_Address, Building_City_Address, Building_Status, Total_Rooms) VALUES (:building_id, :admin_id, :building_name, :street_address, :city_address, :building_status, :total_rooms)";
