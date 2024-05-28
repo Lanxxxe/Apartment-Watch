@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ./index.php');
+    exit();
+}
+
 include_once './includes/header.php';
 ?>
     <title>A.W. | Tenants</title>

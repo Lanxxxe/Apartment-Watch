@@ -1,5 +1,84 @@
 <?php 
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ./index.php');
+    exit();
+}
+
+// Get the tenants
+try {
+    require_once "includes/databaseConnection.php"; // Adjust the path as needed
+
+    if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+
+        // Query to get the total number of apartments
+        $allApartmentsQuery = "
+            SELECT COUNT(b.Building_ID) AS apartments
+            FROM Owner_Acc_Table o
+            LEFT JOIN Building_Table b ON o.Account_ID = b.Owner_ID
+            WHERE o.Account_ID = :user_id;
+        ";
+
+        $statement = $PHP_Data_Object->prepare($allApartmentsQuery);
+        $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+        if ($statement->execute()) {
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            $total_apartments = $result['apartments'];
+        } else {
+            $total_apartments = "An error occurred";
+        }
+
+        // Query to get the total number of rooms
+        $totalRoomsQuery = "
+            SELECT SUM(b.Total_Rooms) AS Total_Rooms
+            FROM Owner_Acc_Table o
+            JOIN Building_Table b ON o.Account_ID = b.Owner_ID
+            WHERE o.Account_ID = :user_id;
+        ";
+
+        $statement = $PHP_Data_Object->prepare($totalRoomsQuery);
+        $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+        if ($statement->execute()) {
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            $total_rooms = $result['Total_Rooms'];
+        } else {
+            $total_rooms = "An error occurred";
+        }
+
+        // Query to get the total number of tenants
+        $totalTenantsQuery = "
+            SELECT COUNT(DISTINCT t.Tenant_ID) AS Total_Tenants
+            FROM Owner_Acc_Table o
+            JOIN Building_Table b ON o.Account_ID = b.Owner_ID
+            JOIN Rooms_Table r ON b.Building_ID = r.Apartment_ID
+            JOIN Tenants_Table t ON r.Room_ID = t.Assigned_Room
+            WHERE o.Account_ID = :user_id;
+        ";
+
+        $statement = $PHP_Data_Object->prepare($totalTenantsQuery);
+        $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+        if ($statement->execute()) {
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            $total_tenants = $result['Total_Tenants'];
+        } else {
+            $total_tenants = "An error occurred";
+        }
+
+        // Close the connection
+        $PHP_Data_Object = null;
+        $statement = null;
+    } else {
+        echo '<p class="">User is not logged in.</p>';
+    }
+} catch (PDOException $error) {
+    echo '<p class="">Failed: ' . $error->getMessage() . '</p>';
+}
+
+
 include_once './includes/header.php';
 ?>
     <link rel="stylesheet" href="./styles/style_dashboard.css">
@@ -31,53 +110,17 @@ include_once './includes/header.php';
                         <p class="mt-2">Total Apartments</p>
                         <i class="bi bi-buildings fs-4"></i>
                     </div>
-                    <?php
-                    try {
-                        require_once "includes/databaseConnection.php"; // Adjust the path as needed
-                    
-                        // Ensure the user is logged in and user_id is set in the session
-                        if (isset($_SESSION['user_id'])) {
-                            $user_id = $_SESSION['user_id'];
-                    
-                            $query = "
-                                SELECT owner_acc_table.account_id, COUNT(building_table.owner_id) AS apartments
-                                FROM owner_acc_table
-                                LEFT JOIN building_table ON owner_acc_table.account_id = building_table.owner_id
-                                WHERE owner_acc_table.account_id = :user_id
-                                GROUP BY owner_acc_table.account_id;
-                            ";
-                            
-                            $statement = $PHP_Data_Object->prepare($query);
-                            $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-                    
-                            if ($statement->execute()) {
-                                $result = $statement->fetch(PDO::FETCH_ASSOC);
-                                $total_apartments = $result['apartments'];
-                    
-                                // Display the total count in the <p> tag
-                                echo '<p class="">' . $total_apartments . '</p>';
-                            } else {
-                                echo '<p class="">Query execution failed.</p>';
-                            }
-                    
-                            // Close the connection
-                            $PHP_Data_Object = null;
-                            $statement = null;
-                        } else {
-                            echo '<p class="">User is not logged in.</p>';
-                        }
-                    } catch (PDOException $error) {
-                        echo '<p class="">Failed: ' . $error->getMessage() . '</p>';
-                    }
-                    ?>
+                    <p class=""><?php echo $total_apartments ?></p>
                     <a class="text-end" href="">View Apartments</a>
                 </div>
                 <div class="tenants-card p-3 d-flex flex-column">
                     <div class="d-flex justify-content-between">
+
+  
                         <p class="mt-2">Number of Tenants</p>
                         <i class="bi bi-people fs-4"></i>
                     </div>
-                    <p class="">54</p>
+                    <p class=""><?php echo $total_tenants ?></p>
                     <a class="text-end " href="">Tenants Information</a>
                 </div>
                 <div class="rooms-card p-3 d-flex flex-column">
@@ -85,7 +128,7 @@ include_once './includes/header.php';
                         <p class="mt-2">Total Rooms</p>
                         <i class="bi bi-door-open fs-4"></i>
                     </div>
-                    <p class="">23</p>
+                    <p class=""><?php echo $total_rooms ?></p>
                     <a class="text-end " href="">Check Rooms</a>
                 </div>
                 <div class="income-card p-3 d-flex flex-column">

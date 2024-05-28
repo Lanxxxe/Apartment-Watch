@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ./index.php');
+    exit();
+}
 
 include_once './includes/header.php';
 ?>
@@ -19,69 +24,52 @@ include_once './includes/header.php';
 
             <div class="mt-2">
                 <div class="apartment-name d-flex align-items-center justify-content-between px-2">
-                    <p class="fw-bold">Apartment Name</p>
-                    <p class="fw-light">Apartment Address</p>
+                    <p class="fw-bold">Owner Name</p>
                 </div>
                 <table class="">
                     <thead>
+
+                        <?php 
+
+                        ?>
+
                         <tr>
-                            <td class="" scope="col">Room Number</td>
-                            <td scope="col">Room Type</td>
-                            <td scope="col">Rent Amount</td>
-                            <td scope="col">Status</td>
-                            <td scope="col">Action(to Tenant)</td>
+                            <td class="" scope="col">Apartment Name</td>
+                            <td scope="col">Total Rooms</td>
+                            <td scope="col">Vancant Rooms</td>
+                            <td scope="col">Action</td>
                         </tr>
                     </thead>
                     <tbody>
+                        
                         <tr>
-                            <td>023</td>
-                            <td>Studio</td>
-                            <td>P5000</td>
-                            <td>Vacant</td>
+                            <td>Rose Building</td>
+                            <td>20</td>
+                            <td>10</td>
                             <td>
-                                <button class="add-tenant" type="button">Add Tenant</button>
-                                <button class="remove-tenant" type="button">Remove Tenant</button>
+                                <button class="remove-apartment-btn" type="button">Remove</button>
                             </td>
                         </tr>
                         <tr>
-                            <td>023</td>
-                            <td>Studio</td>
-                            <td>P5000</td>
-                            <td>Vacant</td>
+                            <td>SunFlower Building</td>
+                            <td>20</td>
+                            <td>4</td>
                             <td>
-                                <button class="add-tenant" type="button">Add Tenant</button>
-                                <button class="remove-tenant" type="button">Remove Tenant</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>023</td>
-                            <td>Studio</td>
-                            <td>P5000</td>
-                            <td>Vacant</td>
-                            <td>
-                                <button class="add-tenant" type="button">Add Tenant</button>
-                                <button class="remove-tenant" type="button">Remove Tenant</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>023</td>
-                            <td>Studio</td>
-                            <td>P5000</td>
-                            <td>Vacant</td>
-                            <td>
-                                <button class="add-tenant" type="button">Add Tenant</button>
-                                <button class="remove-tenant" type="button">Remove Tenant</button>
+                                <a class="remove-apartment-btn">Remove</a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <div>
-                    <button class="btn" type="button">Add Apartment</button>
+                <div class="d-flex align-items-center justify-content-center mt-3">
+                    <button class="add-apartment-button" type="button"  data-bs-toggle="modal" data-bs-target="#addApartment" >Add Apartment</button>
+                    
+                    <?php include './apartmentModal.php'; ?>
                 </div>
             </div>
         </div>
-
     </div>
+
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

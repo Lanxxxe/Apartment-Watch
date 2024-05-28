@@ -30,15 +30,29 @@ table thead tr td, table tbody tr td  {
     overflow: hidden;
     white-space: nowrap;
 }
-.add-tenant, .remove-tenant {
+.add-tenant, .remove-tenant, .remove-apartment-btn {
     font-size: 0.73rem;
     padding: 5px 10px;
     border-radius: 5px;
     border: none;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
 }
 .add-tenant {
     background-color: hsl(120, 50%, 60%);
 }
-.remove-tenant {
+.remove-tenant, .remove-apartment-btn {
     background-color: hsl(0, 64%, 60%);
+}
+
+.add-apartment-button, .add-room-button {
+    background-color: #4297d3;
+    padding: 8px 20px;
+    font-size: 0.90rem;
+    border-radius: 5px;
+    border: none;
+}
+.add-apartment-button:hover, .add-room-button:hover {
+    background-color: #48a3e4;
 }
