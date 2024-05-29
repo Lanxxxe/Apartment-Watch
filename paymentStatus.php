@@ -75,7 +75,10 @@ include_once './includes/header.php';
                             <td><?php echo $apartment['Monthly_Payment'] ?></td>
                             <td><?php echo $apartment['Payment_Status'] ?></td>
                             <td>
-                                <a href="./model/deleteApartment.php?tenant_id=<?php echo $apartment['Tenant_ID']?>" class="remove-apartment-btn" type="button" role="button">Remove</a>
+                                <button class="update-tenant-btn" type="button" role="button" data-bs-toggle="modal" data-bs-target="#updateTenant">Update</button>
+                                <a href="./model/removeTenant.php?tenantid=<?php $apartment['Tenant_ID'] ?>" class="remove-tenant-btn" type="button" role="button">Remove</a>
+                            
+                                    <?php include './paymentsModal.php' ?>
                             </td>
                         </tr>
 
@@ -92,11 +95,6 @@ include_once './includes/header.php';
                         
                     </tbody>
                 </table>
-                <div class="d-flex align-items-center justify-content-center mt-3">
-                    <button class="add-apartment-button" type="button"  data-bs-toggle="modal" data-bs-target="#addApartment" >Add Apartment</button>
-                    
-                    <?php include './apartmentModal.php'; ?>
-                </div>
             </div>
         </div>
     </div>

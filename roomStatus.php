@@ -103,9 +103,6 @@ include_once './includes/header.php';
             <?php
             }
             ?>
-                <div class="d-flex align-items-center justify-content-center mt-3">
-                    <button class="add-room-button" type="button">Add Room</button>
-                </div>
             </div>
         </div>
 
