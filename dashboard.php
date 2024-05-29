@@ -108,7 +108,18 @@ include_once './includes/header.php';
                         <p class="mt-2">Total Rooms</p>
                         <i class="bi bi-door-open fs-4"></i>
                     </div>
+                    <?php 
+                    if ($TotalRooms != 0) {
+
+                        ?>
                     <p class=""><?php echo $TotalRooms ?></p>
+                    <?php
+                } else {
+                    ?>
+                    <p class="">0</p>
+                <?php 
+                }
+                    ?>
                     <a class="text-end " href="./roomStatus.php">Check Rooms</a>
                 </div>
                 <div class="income-card p-3 d-flex flex-column" data-aos="fade-up"  data-aos-duration="1300" data-aos-delay="600">

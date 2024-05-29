@@ -66,7 +66,9 @@ include_once './includes/header.php';
                 $Rooms--; 
             }
             ?>
-            <button type='submit' class='add-rooms-btn mx-auto'>Submit</button>
+            <div class="d-flex align-items-center justify-content-center mt-3 w-100">
+                <button type='submit' class='add-rooms-btn mt-3 mx-auto'>Submit</button>
+            </div>
         </form>
         <?php
             } else {

@@ -93,8 +93,8 @@ include_once './includes/header.php';
                         
                     </tbody>
                 </table>
-                <div class="d-flex align-items-center justify-content-center mt-3">
-                    <button class="add-apartment-button" type="button"  data-bs-toggle="modal" data-bs-target="#addApartment" >Add Apartment</button>
+                <div class="d-flex align-items-center justify-content-center mt-3 w-100">
+                    <button class="add-apartment-button mt-3" type="button"  data-bs-toggle="modal" data-bs-target="#addApartment" >Add Apartment</button>
                     
                     <?php include './apartmentModal.php'; ?>
                 </div>

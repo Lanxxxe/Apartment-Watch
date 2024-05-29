@@ -26,13 +26,14 @@ include_once './includes/header.php';
             <div class="mt-2">
                 <div class="apartment-name d-flex align-items-center justify-content-between px-2">
                     <p class="fw-bold">Owner Name</p>
+                    
                 </div>
                 <table class="">
                     <thead>
                         <tr>
-                            <td class="" scope="col">Apartment Name</td>
-                            <td scope="col">Total Rooms</td>
-                            <td scope="col">Vancant Rooms</td>
+                            <td class="" scope="col">Tenant Name</td>
+                            <td scope="col">Monthly Payment</td>
+                            <td scope="col">Payment Status</td>
                             <td scope="col">Action</td>
                         </tr>
                     </thead>
@@ -41,22 +42,20 @@ include_once './includes/header.php';
                         <?php 
                             $query = "
                                 SELECT 
-                                b.Building_ID,
-                                b.Building_Name AS Apartment,
-                                COUNT(r.Room_ID) AS Total_Rooms,
-                                SUM(CASE WHEN r.Room_Status = 'vacant' THEN 1 ELSE 0 END) AS Vacant_Rooms
-                                FROM 
+                                    payment_status AS Payment_Status,
+                                    monthly_payment AS Monthly_Payment,
+                                    t.first_name AS f_name,
+                                    t.last_name AS l_name,
+                                    t.tenant_id AS Tenant_ID
+                                FROM
+                                    payments p,
+                                    tenants_table t,
+                                    rooms_table r, 
+                                    building_table b,
                                     owner_acc_table o
-                                JOIN 
-                                    building_table b ON o.Account_ID = b.Owner_ID
-                                LEFT JOIN 
-                                    rooms_table r ON b.Building_ID = r.Apartment_ID
-                                WHERE 
-                                    o.Account_ID = :user_id
-                                GROUP BY 
-                                    b.Building_Name
-                                ORDER BY 
-                                    b.Building_Name;
+                                WHERE   
+                                    o.Account_ID = b.Owner_ID AND b.Building_ID = r.Apartment_ID AND r.Room_ID = t.Assigned_Room AND t.Tenant_ID = p.tenant_id AND o.Account_ID = :user_id;  
+
                             ";
 
                             $statement = $PHP_Data_Object->prepare($query);
@@ -65,18 +64,18 @@ include_once './includes/header.php';
 
                             $statement->execute();
 
-                            $apartments = $statement->fetchAll(PDO::FETCH_ASSOC);
+                            $apartments= $statement->fetchAll(PDO::FETCH_ASSOC);
 
                             if (count($apartments) > 0) {
                                 foreach($apartments as $apartment) {
                         ?>
 
                         <tr>
-                            <td><?php echo $apartment['Apartment'] ?></td>
-                            <td><?php echo $apartment['Total_Rooms'] ?></td>
-                            <td><?php echo $apartment['Vacant_Rooms'] ?></td>
+                            <td><?php echo $apartment['f_name'] . ' ' . $apartment['l_name'] ?></td>
+                            <td><?php echo $apartment['Monthly_Payment'] ?></td>
+                            <td><?php echo $apartment['Payment_Status'] ?></td>
                             <td>
-                                <a href="./model/deleteApartment.php?building_id=<?php echo $apartment['Building_ID']?>" class="remove-apartment-btn" type="button" role="button">Remove</a>
+                                <a href="./model/deleteApartment.php?tenant_id=<?php echo $apartment['Tenant_ID']?>" class="remove-apartment-btn" type="button" role="button">Remove</a>
                             </td>
                         </tr>
 

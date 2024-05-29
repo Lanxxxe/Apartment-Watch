@@ -46,13 +46,13 @@ table thead tr td, table tbody tr td  {
     background-color: hsl(0, 64%, 60%);
 }
 
-.add-apartment-button, .add-room-button {
+.add-apartment-button, .add-room-button, .add-rooms-btn  {
     background-color: #4297d3;
     padding: 8px 20px;
     font-size: 0.90rem;
     border-radius: 5px;
     border: none;
 }
-.add-apartment-button:hover, .add-room-button:hover {
+.add-apartment-button:hover, .add-room-button:hover, .add-rooms-btn:hover {
     background-color: #48a3e4;
 }
