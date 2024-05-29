@@ -25,14 +25,16 @@ include_once './includes/header.php';
 
             <div class="mt-2">
                 <div class="apartment-name d-flex align-items-center justify-content-between px-2">
-                    <p class="fw-bold">Owner Name</p>
+                    <p class="fw-bold"><?php 
+                    echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName'] 
+                    ?></p>
                     
                 </div>
                 <table class="">
                     <thead>
                         <tr>
                             <td class="" scope="col">Tenant Name</td>
-                            <td scope="col">Monthly Payment</td>
+                            <td scope="col">Month Payment</td>
                             <td scope="col">Payment Status</td>
                             <td scope="col">Action</td>
                         </tr>
@@ -46,7 +48,7 @@ include_once './includes/header.php';
                                     monthly_payment AS Monthly_Payment,
                                     t.first_name AS f_name,
                                     t.last_name AS l_name,
-                                    t.tenant_id AS Tenant_ID
+                                    p.tenant_id AS Tenant_ID
                                 FROM
                                     payments p,
                                     tenants_table t,
@@ -68,6 +70,7 @@ include_once './includes/header.php';
 
                             if (count($apartments) > 0) {
                                 foreach($apartments as $apartment) {
+                                    $modalId = 'updateTenant' . $apartment['Tenant_ID'];
                         ?>
 
                         <tr>
@@ -75,9 +78,7 @@ include_once './includes/header.php';
                             <td><?php echo $apartment['Monthly_Payment'] ?></td>
                             <td><?php echo $apartment['Payment_Status'] ?></td>
                             <td>
-                                <button class="update-tenant-btn" type="button" role="button" data-bs-toggle="modal" data-bs-target="#updateTenant">Update</button>
-                                <a href="./model/removeTenant.php?tenantid=<?php $apartment['Tenant_ID'] ?>" class="remove-tenant-btn" type="button" role="button">Remove</a>
-                            
+                                <button class="update-tenant-btn" type="button" role="button" data-bs-toggle="modal" data-bs-target="#<?php echo $modalId; ?>">Update</button>                            
                                     <?php include './paymentsModal.php' ?>
                             </td>
                         </tr>

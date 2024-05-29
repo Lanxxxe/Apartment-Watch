@@ -14,9 +14,10 @@ try {
         $query = "
         SELECT 
             COUNT(DISTINCT b.Building_ID) AS Total_Apartments,
-            SUM(b.Total_Rooms) AS Total_Rooms,
+            COUNT(b.Total_Rooms) AS Total_Rooms,
             COUNT(DISTINCT t.Tenant_ID) AS Total_Tenants,
-            SUM(r.Rent_Amount) AS Total_Rent
+            SUM(r.Rent_Amount) AS Total_Rent,
+            SUM(CASE WHEN r.Room_Status = 'Rented' THEN r.Rent_Amount ELSE 0 END) AS Active_Rent
         FROM 
             Owner_Acc_Table o
         LEFT JOIN 
@@ -27,7 +28,6 @@ try {
             Tenants_Table t ON r.Room_ID = t.Assigned_Room
         WHERE 
             o.Account_ID = :user_id;
-        
         ";
 
         $statement = $PHP_Data_Object->prepare($query);
@@ -40,12 +40,14 @@ try {
             $TotalRooms = $result['Total_Rooms'];
             $TotalTenants = $result['Total_Tenants'];
             $TotalRent = $result['Total_Rent'];
+            $ActiveRent = $result['Active_Rent'];
         
         } else {
             $TotalApartments = 0;
             $TotalRooms = 0;
             $TotalTenants = 0;
             $TotalRent = 0;
+            $ActiveRent = 0;
         }
 
         // Close the connection
@@ -129,6 +131,15 @@ include_once './includes/header.php';
                     </div>
                     <p class="">&#x20B1; <?php echo $TotalRent ?></p>
                     <a class="text-end " href="./paymentStatus.php">Check Payments </a>
+                </div>
+
+
+                <div class="income-card p-3 d-flex flex-column" data-aos="fade-up"  data-aos-duration="1300" data-aos-delay="600">
+                    <div class="d-flex justify-content-between">
+                        <p class="mt-2">Active Income</p>
+                        <i class="bi bi-cash-stack fs-4"></i>
+                    </div>
+                    <p class="">&#x20B1; <?php echo $ActiveRent ?></p>
                 </div>
             </div>
         </div>

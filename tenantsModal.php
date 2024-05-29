@@ -71,8 +71,7 @@
                 <input type="text" name="NewRoomStatus" value="Rented" hidden>
               </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Update</button>
       </div>
     </form>
     </div>
@@ -87,40 +86,43 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="tenant-lastname" placeholder="" disabled>
-          <label for="tenant-lastname">Last Name</label>
+      <form action="./model/updateTenant.php" method="POST">
+        <div class="modal-body">
+          <input class="form-control" type="text" name="tenantID" id="tenantID" hidden>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="lastname" id="tenant-lastname" placeholder="">
+            <label for="tenant-lastname">Last Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="firstname" id="tenant-firstname" placeholder="">
+            <label for="tenant-firstname">First Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="tenant-room" placeholder="" disabled>
+            <label for="tenant-room">Assigned Room</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="contact" id="tenant-contact" placeholder="" >
+            <label for="tenant-contact">Contact Number</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="tenant-paymentstatus" placeholder="" disabled>
+            <label for="tenant-paymentstatus">Payment Status</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="tenant-monthlypayment" placeholder="" disabled>
+            <label for="tenant-monthlypayment">Monthly Payment</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="tenant-duedate" placeholder="" disabled>
+            <label for="tenant-duedate">Monthly Due Date</label>
+          </div>
         </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="tenant-firstname" placeholder="" disabled>
-          <label for="tenant-firstname">First Name</label>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-danger" id="delete-link">Delete</a>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
         </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="tenant-room" placeholder="" disabled>
-          <label for="tenant-room">Assigned Room</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="tenant-contact" placeholder="" disabled>
-          <label for="tenant-contact">Contact Number</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="tenant-paymentstatus" placeholder="" disabled>
-          <label for="tenant-paymentstatus">Payment Status</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="tenant-monthlypayment" placeholder="" disabled>
-          <label for="tenant-monthlypayment">Monthly Payment</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="tenant-duedate" placeholder="" disabled>
-          <label for="tenant-duedate">Monthly Due Date</label>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        </form>
     </div>
   </div>
 </div>

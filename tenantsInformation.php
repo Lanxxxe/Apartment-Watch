@@ -25,7 +25,8 @@ include_once './includes/header.php';
 
                 <?php 
                     $query = " 
-                    SELECT 
+                    SELECT
+                        t.Tenant_ID, 
                         t.First_Name, 
                         t.Last_Name,
                         t.Contact_Number, 
@@ -68,6 +69,7 @@ include_once './includes/header.php';
                                         class="btn btn-success w-100" 
                                         data-bs-toggle="modal" 
                                         data-bs-target="#viewTenantInformation"
+                                        data-tenantid="<?php echo htmlspecialchars($tenant['Tenant_ID']); ?>"
                                         data-firstname="<?php echo htmlspecialchars($tenant['First_Name']); ?>"
                                         data-lastname="<?php echo htmlspecialchars($tenant['Last_Name']); ?>"
                                         data-room="<?php echo htmlspecialchars($tenant['Room_ID']); ?>"
@@ -125,6 +127,7 @@ include_once './includes/header.php';
                 var button = event.relatedTarget; // Button that triggered the modal
 
                 // Extract info from data-* attributes
+                var tenantId = button.getAttribute('data-tenantid');
                 var firstname = button.getAttribute('data-firstname');
                 var lastname = button.getAttribute('data-lastname');
                 var room = button.getAttribute('data-room');
@@ -135,6 +138,7 @@ include_once './includes/header.php';
 
                 // Update the modal's content
                 tenantModal.querySelector('.modal-title').textContent = 'Tenant Information: ' + firstname + ' ' + lastname;
+                tenantModal.querySelector('#tenantID').value = tenantId;
                 tenantModal.querySelector('#tenant-lastname').value = lastname;
                 tenantModal.querySelector('#tenant-firstname').value = firstname;
                 tenantModal.querySelector('#tenant-room').value = room;
@@ -142,6 +146,9 @@ include_once './includes/header.php';
                 tenantModal.querySelector('#tenant-paymentstatus').value = paymentstatus;
                 tenantModal.querySelector('#tenant-monthlypayment').value = monthlypayment;
                 tenantModal.querySelector('#tenant-duedate').value = `${duedate} day of the month`;
+                
+                // Delete link
+                tenantModal.querySelector('#delete-link').href = './model/deleteTenant.php?tenantid=' + tenantId;
             });
         });
     </script>

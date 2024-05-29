@@ -53,7 +53,7 @@ include_once './includes/header.php';
                             <label for='floatingRoomType'>Room Type</label>
                         </div>
                         <div class='form-floating'>
-                            <input type='text' class='form-control' name="roomstatus[]" id='floatingRoomStatus' placeholder='Room Status'>
+                            <input type='text' class='form-control' name="roomstatus[]" id='floatingRoomStatus' value="Vacant" placeholder='Room Status'>
                             <label for='floatingRoomStatus'>Room Status</label>
                         </div>
                         <div class='form-floating'>

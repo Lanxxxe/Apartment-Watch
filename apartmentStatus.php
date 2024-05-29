@@ -30,7 +30,8 @@ include_once './includes/header.php';
                 <table class="">
                     <thead>
                         <tr>
-                            <td class="" scope="col">Apartment Name</td>
+                            <td scope="col">Apartment Name</td>
+                            <td scope="col">Address</td>
                             <td scope="col">Total Rooms</td>
                             <td scope="col">Vancant Rooms</td>
                             <td scope="col">Action</td>
@@ -42,6 +43,9 @@ include_once './includes/header.php';
                             $query = "
                                 SELECT 
                                 b.Building_ID,
+                                b.Building_Street_Address,
+                                b.Building_City_Address,
+                                b.Building_Status,
                                 b.Building_Name AS Apartment,
                                 COUNT(r.Room_ID) AS Total_Rooms,
                                 SUM(CASE WHEN r.Room_Status = 'vacant' THEN 1 ELSE 0 END) AS Vacant_Rooms
@@ -73,9 +77,21 @@ include_once './includes/header.php';
 
                         <tr>
                             <td><?php echo $apartment['Apartment'] ?></td>
+                            <td><?php echo $apartment['Building_Street_Address'] . ', ' . $apartment['Building_City_Address'] ?></td>
                             <td><?php echo $apartment['Total_Rooms'] ?></td>
                             <td><?php echo $apartment['Vacant_Rooms'] ?></td>
                             <td>
+                                <button class="edit-apartment-btn" type="button" role="button" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#editapartment"
+                                data-apartmentID="<?php echo htmlspecialchars($apartment['Building_ID']) ?>"
+                                data-buildingName="<?php echo htmlspecialchars($apartment['Apartment']) ?>"
+                                data-streetAddress="<?php echo htmlspecialchars($apartment['Building_Street_Address']) ?>"
+                                data-cityAddress="<?php echo htmlspecialchars($apartment['Building_City_Address']) ?>"
+                                data-status="<?php echo htmlspecialchars($apartment['Building_Status']) ?>"
+                                data-totalRooms="<?php echo htmlspecialchars($apartment['Total_Rooms']) ?>"
+                                
+                                >Edit</button>
                                 <a href="./model/deleteApartment.php?building_id=<?php echo $apartment['Building_ID']?>" class="remove-apartment-btn" type="button" role="button">Remove</a>
                             </td>
                         </tr>
@@ -105,6 +121,32 @@ include_once './includes/header.php';
     
 
     <?php include './includes/footer.php' ?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var EditApartmentModal = document.querySelector('#editapartment');
+        EditApartmentModal.addEventListener('show.bs.modal', (event) => {
+            var button = event.relatedTarget
+
+            var BuildingID = button.getAttribute('data-apartmentID');
+            var BuildingName = button.getAttribute('data-buildingName');
+            var StreetAddress = button.getAttribute('data-streetAddress');
+            var CityAddress = button.getAttribute('data-cityAddress');
+            var Status = button.getAttribute('data-status');
+            var Rooms = button.getAttribute('data-totalRooms');
+
+            EditApartmentModal.querySelector('#apartmentID').value = BuildingID;
+            EditApartmentModal.querySelector('#buildingName').value = BuildingName;
+            EditApartmentModal.querySelector('#StAddress').value = StreetAddress;
+            EditApartmentModal.querySelector('#cityAddress').value = CityAddress;
+            EditApartmentModal.querySelector('#status').value = Status;
+            EditApartmentModal.querySelector('#totalRooms').value = Rooms;
+        })
+    })
+
+
+
+</script>
 
 </body>
 

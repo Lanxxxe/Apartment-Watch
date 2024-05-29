@@ -1,22 +1,17 @@
 <!-- Update Modal -->
-<div class="modal fade" id="updateTenant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<?php echo $modalId; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Payment Status</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="">
-          
+      <form action="./model/updatePayment.php" method="POST">
         <div class="modal-body">
             <input type="text" name="paymentid" hidden>
-            <input type="text" name="tenantid" hidden>
-            <div class="mb-3">
-                <input type="number" class="form-control form-control-sm" id="monthly_payment" name="MonthlyPayment" placeholder="Monthly Payment">
-            </div>
-            
+            <input type="text" name="tenantid" value="<?php echo $apartment['Tenant_ID'] ?>" hidden>
             <div class="form-floating">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                <select class="form-select" id="floatingSelect" name="paymentStatus" aria-label="Floating label select example">
                     <option selected>Choose</option>
                     <option value="Paid">Paid</option>
                     <option value="Not Paid">Not Paid</option>
@@ -26,9 +21,9 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
-    </form>
+      </form>
     </div>
   </div>
 </div>

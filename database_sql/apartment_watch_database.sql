@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2024 at 04:31 PM
+-- Generation Time: May 29, 2024 at 09:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,11 +42,8 @@ CREATE TABLE `building_table` (
 --
 
 INSERT INTO `building_table` (`Building_ID`, `Owner_ID`, `Building_Name`, `Building_Street_Address`, `Building_City_Address`, `Building_Status`, `Total_Rooms`) VALUES
-('B001', 1, 'Sunrise Apartments', '123 Main St', 'Springfield', 'Active', 20),
-('B002', 2, 'Moonlight Condos', '456 Elm St', 'Greenville', 'Active', 30),
-('B003', 3, 'Starlight Villas', '789 Oak St', 'Rivertown', 'Under Construction', 15),
-('B004', 4, 'Sunset Towers', '101 Pine St', 'Lakeside', 'Active', 25),
-('B005', 5, 'Riverfront Residences', '202 Maple St', 'Riverside', 'Renovation', 10);
+('1003_Biksoy', 1003, 'Biksoy', 'Softball Street', 'Tanauan City', 'Active', 10),
+('1003_SoySoy', 1003, 'SoySoy', 'Volleyball Street', 'Samar', 'Operating', 3);
 
 -- --------------------------------------------------------
 
@@ -67,14 +64,9 @@ CREATE TABLE `owner_acc_table` (
 --
 
 INSERT INTO `owner_acc_table` (`Account_ID`, `Last_Name`, `First_Name`, `Owner_Username`, `Owner_Password`) VALUES
-(1, 'Smith', 'John', 'johnsmith', 'password123'),
-(2, 'Doe', 'Jane', 'janedoe', 'password456'),
-(3, 'Brown', 'James', 'jamesbrown', 'password789'),
-(4, 'White', 'Emily', 'emilywhite', 'password101'),
-(5, 'Johnson', 'Michael', 'michaeljohnson', 'password202'),
-(1000, 'decio', 'eloisa', 'eloisa', 'eloisa123'),
-(1001, 'kkj', 'lakjh', 'sampleUsername', 'password'),
-(1002, 'Egloso', 'Alyssa', 'alyssa23', 'password');
+(1003, 'Decio', 'Eloisa', 'ella123', '123'),
+(1004, 'Egloso', 'Alyssa', 'alyssa123', '123'),
+(1006, 'Ladrera', 'Beverlie Jane', 'beverlie123', '123');
 
 -- --------------------------------------------------------
 
@@ -95,11 +87,12 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`Payment_ID`, `Payment_Status`, `Monthly_Payment`, `Monthly_Due_Date`, `tenant_id`) VALUES
-(1, 'Paid', 500, '2024-05-01', 1),
-(2, 'Unpaid', 800, '2024-05-01', 2),
-(3, 'Paid', 1000, '2024-05-01', 3),
-(4, 'Unpaid', 600, '2024-05-01', 4),
-(5, 'Paid', 750, '2024-05-01', 5);
+(103, 'Paid', 5000, '29th', 10007),
+(104, 'Paid', 5000, '29th', NULL),
+(105, 'Paid', 5000, '29th', NULL),
+(106, 'Paid', 5000, '29th', NULL),
+(107, 'Paid', 5000, '29th', NULL),
+(108, 'Not Paid', 5000, '29th', NULL);
 
 -- --------------------------------------------------------
 
@@ -112,7 +105,7 @@ CREATE TABLE `rooms_table` (
   `Tenant_ID` int(11) DEFAULT NULL,
   `Apartment_ID` varchar(60) DEFAULT NULL,
   `Room_Type` text DEFAULT NULL,
-  `Room_Status` text DEFAULT NULL,
+  `Room_Status` text DEFAULT 'Vacant' COMMENT 'Automatically set to Vacant if Tenant_ID is empty',
   `Rent_Amount` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -121,11 +114,19 @@ CREATE TABLE `rooms_table` (
 --
 
 INSERT INTO `rooms_table` (`Room_ID`, `Tenant_ID`, `Apartment_ID`, `Room_Type`, `Room_Status`, `Rent_Amount`) VALUES
-('R101', 1, 'B001', 'Studio', 'Occupied', 500),
-('R102', 2, 'B002', 'One Bedroom', 'Vacant', 800),
-('R103', 3, 'B003', 'Two Bedroom', 'Occupied', 1000),
-('R104', 4, 'B004', 'Studio', 'Vacant', 600),
-('R105', 5, 'B005', 'One Bedroom', 'Occupied', 750);
+('10_Biksoy', NULL, '1003_Biksoy', 'Studio', 'Vacant', 5000),
+('1_Biksoy', NULL, '1003_Biksoy', 'Studio', 'Vacant', 5000),
+('1_SoySoy', NULL, '1003_SoySoy', 'Studio', 'Vacant', 5000),
+('2_Biksoy', NULL, '1003_Biksoy', 'Studio', 'Vacant', 5000),
+('2_SoySoy', 10007, '1003_SoySoy', 'Studio', 'Rented', 5000),
+('3_Biksoy', NULL, '1003_Biksoy', 'Studio', 'Vacant', 5000),
+('3_SoySoy', NULL, '1003_SoySoy', 'Studio', 'Vacant', 5000),
+('4_Biksoy', NULL, '1003_Biksoy', 'Studio', 'Vacant', 5000),
+('5_Biksoy', NULL, '1003_Biksoy', 'Studio', 'Vacant', 5000),
+('6_Biksoy', NULL, '1003_Biksoy', 'Studio', 'Vacant', 5000),
+('7_Biksoy', NULL, '1003_Biksoy', 'Studio', 'Vacant', 5000),
+('8_Biksoy', NULL, '1003_Biksoy', 'Studio', 'Vacant', 5000),
+('9_Biksoy', NULL, '1003_Biksoy', 'Studio', 'Vacant', 5000);
 
 -- --------------------------------------------------------
 
@@ -146,11 +147,7 @@ CREATE TABLE `tenants_table` (
 --
 
 INSERT INTO `tenants_table` (`Tenant_ID`, `Assigned_Room`, `First_Name`, `Last_Name`, `Contact_Number`) VALUES
-(1, 'R101', 'Alice', 'Johnson', 2147483647),
-(2, 'R102', 'Bob', 'Smith', 2147483647),
-(3, 'R103', 'Charlie', 'Brown', 2147483647),
-(4, 'R104', 'David', 'White', 2147483647),
-(5, 'R105', 'Eve', 'Black', 2147483647);
+(10007, '2_SoySoy', 'Decio', 'Alyssa', 91237123);
 
 --
 -- Indexes for dumped tables
@@ -199,19 +196,19 @@ ALTER TABLE `tenants_table`
 -- AUTO_INCREMENT for table `owner_acc_table`
 --
 ALTER TABLE `owner_acc_table`
-  MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
+  MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `tenants_table`
 --
 ALTER TABLE `tenants_table`
-  MODIFY `Tenant_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
+  MODIFY `Tenant_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10013;
 
 --
 -- Constraints for dumped tables
